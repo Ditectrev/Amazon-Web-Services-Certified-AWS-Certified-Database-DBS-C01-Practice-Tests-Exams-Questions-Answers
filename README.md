@@ -514,7 +514,7 @@
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A gaming company has implemented a leaderboard in AWS using a Sorted Set data structure within. Amazon ElastiCache for Redis. The ElastiCache cluster has been deployed with cluster mode disabled and has a replication group deployed with two additional replicas. The company is planning for a worldwide gaming event and is anticipating a higher write load than what the current cluster can handle. Which method should a Database Specialist use to scale the ElastiCache cluster ahead of the upcoming event?
+### A gaming company has implemented a leaderboard in AWS using a Sorted Set data structure within Amazon ElastiCache for Redis. The ElastiCache cluster has been deployed with cluster mode disabled and has a replication group deployed with two additional replicas. The company is planning for a worldwide gaming event and is anticipating a higher write load than what the current cluster can handle. Which method should a Database Specialist use to scale the ElastiCache cluster ahead of the upcoming event?
 
 - [ ] Enable cluster mode on the existing ElastiCache cluster and configure separate shards for the Sorted Set across all nodes in the cluster.
 - [x] Increase the size of the ElastiCache cluster nodes to a larger instance size.
@@ -1502,5 +1502,181 @@ Launch an Amazon EC2 instance with a weekly cron job to execute the customscript
 - [ ] Scale up the DB instance class.
 - [ ] Modify applications to commit transactions in batches.
 - [ ] Modify applications to avoid conflicts by taking locks.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An online advertising company uses an Amazon DynamoDb table as its data store. The table has Amazon DynamoDB Streams enabled and has a global secondary index on one of the keys. The table is encrypted using an AWS Key Management Service (AWS KMS) customer managed key. The company has decided to expand its operations globally and wants to replicate the database in a different AWS Region by using DynamoDB global tables. Upon review, an administrator notices the following: ✑ No role with the dynamodb: CreateGlobalTable permission exists in the account. ✑ An empty table with the same name exists in the new Region where replication is desired. ✑ A global secondary index with the same partition key but a different sort key exists in the new Region where replication is desired. Which configurations will block the creation of a global table or the creation of a replica in the new Region? (Choose two.)
+
+- [x] A global secondary index with the same partition key but a different sort key exists in the new Region where replication is desired.
+- [ ] An empty table with the same name exists in the Region where replication is desired.
+- [ ] No role with the dynamodb:CreateGlobalTable permission exists in the account.
+- [x] DynamoDB Streams is enabled for the table.
+- [ ] The table is encrypted using a KMS customer managed key.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A large automobile company is migrating the database of a critical financial application to Amazon DynamoDB. The company's risk and compliance policy requires that every change in the database be recorded as a log entry for audits. The system is anticipating more than 500,000 log entries each minute. Log entries should be stored in batches of at least 100,000 records in each file in Apache Parquet format. How should a database specialist implement these requirements with DynamoDB?
+
+- [ ] Enable Amazon DynamoDB Streams on the table. Create an AWS Lambda function triggered by the stream. Write the log entries to an Amazon S3 object.
+- [ ] Create a backup plan in AWS Backup to back up the DynamoDB table once a day. Create an AWS Lambda function that restores the backup in another table and compares both tables for changes. Generate the log entries and write them to an Amazon S3 object.
+- [ ] Enable AWS CloudTrail logs on the table. Create an AWS Lambda function that reads the log files once an hour and filters DynamoDB API actions. Write the filtered log files to Amazon S3.
+- [x] Enable Amazon DynamoDB Streams on the table. Create an AWS Lambda function triggered by the stream. Write the log entries to an Amazon Kinesis Data Firehose delivery stream with buffering and Amazon S3 as the destination.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company released a mobile game that quickly grew to 10 million daily active users in North America. The game's backend is hosted on AWS and makes extensive use of an Amazon DynamoDB table that is configured with a TTL attribute. When an item is added or updated, its TTL is set to the current epoch time plus 600 seconds. The game logic relies on old data being purged so that it can calculate rewards points accurately. Occasionally, items are read from the table that are several hours past their TTL expiry. How should a database specialist fix this issue?
+
+- [x] Use a client library that supports the TTL functionality for DynamoDB.
+- [ ] Include a query filter expression to ignore items with an expired TTL.
+- [ ] Set the ConsistentRead parameter to true when querying the table.
+- [ ] Create a local secondary index on the TTL attribute.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A development team at an international gaming company is experimenting with Amazon DynamoDB to store in-game events for three mobile games. The most popular game hosts a maximum of 500,000 concurrent users, and the least popular game hosts a maximum of 10,000 concurrent users. The average size of an event is 20 KB, and the average user session produces one event each second. Each event is tagged with a time in milliseconds and a globally unique identifier. The lead developer created a single DynamoDB table for the events with the following schema: ✑ Partition key: game name ✑ Sort key: event identifier ✑ Local secondary index: player identifier ✑ Event time The tests were successful in a small-scale development environment. However, when deployed to production, new events stopped being added to the table and the logs show DynamoDB failures with the ItemCollectionSizeLimitExceededException error code. Which design change should a database specialist recommend to the development team?
+
+- [ ] Use the player identifier as the partition key. Use the event time as the sort key. Add a global secondary index with the game name as the partition key and the event time as the sort key.
+- [ ] Create two tables. Use the game name as the partition key in both tables. Use the event time as the sort key for the first table. Use the player identifier as the sort key for the second table.
+- [x] Replace the sort key with a compound value consisting of the player identifier collated with the event time, separated by a dash. Add a local secondary index with the player identifier as the sort key.
+- [ ] Create one table for each game. Use the player identifier as the partition key. Use the event time as the sort key.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An ecommerce company recently migrated one of its SQL Server databases to an Amazon RDS for SQL Server Enterprise Edition DB instance. The company expects a spike in read traffic due to an upcoming sale. A database specialist must create a read replica of the DB instance to serve the anticipated read traffic. Which actions should the database specialist take before creating the read replica? (Choose two.)
+
+- [ ] Identify a potential downtime window and stop the application calls to the source DB instance.
+- [x] Ensure that automatic backups are enabled for the source DB instance.
+- [ ] Ensure that the source DB instance is a Multi-AZ deployment with Always ON Availability Groups. 
+- [x] Ensure that the source DB instance is a Multi-AZ deployment with SQL Server Database Mirroring (DBM).
+- [ ] Modify the read replica parameter group setting and set the value to 1.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A financial services company uses Amazon RDS for Oracle with Transparent Data Encryption (TDE). The company is required to encrypt its data at rest at all times. The key required to decrypt the data has to be highly available, and access to the key must be limited. As a regulatory requirement, the company must have the ability to rotate the encryption key on demand. The company must be able to make the key unusable if any potential security breaches are spotted. The company also needs to accomplish these tasks with minimum overhead. What should the database administrator use to set up the encryption to meet these requirements?
+
+- [ ] AWS CloudHSM.
+- [x] AWS Key Management Service (AWS KMS) with an AWS managed key.
+- [ ] AWS Key Management Service (AWS KMS) with server-side encryption.
+- [ ] AWS Key Management Service (AWS KMS) CMK with customer-provided material .
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is setting up a new Amazon RDS for SQL Server DB instance. The company wants to enable SQL Server auditing on the database. Which combination of steps should a database specialist take to meet this requirement? (Choose two.)
+
+- [x] Create a service-linked role for Amazon RDS that grants permissions for Amazon RDS to store audit logs on Amazon S3.
+- [ ] Set up a parameter group to configure an IAM role and an Amazon S3 bucket for audit log storage. Associate the parameter group with the DB instance.
+- [ ] Disable Multi-AZ on the DB instance, and then enable auditing. Enable Multi-AZ after auditing is enabled.
+- [ ] Disable automated backup on the DB instance, and then enable auditing. Enable automated backup after auditing is enabled.
+- [x] Set up an options group to configure an IAM role and an Amazon S3 bucket for audit log storage. Associate the options group with the DB instance.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A database specialist is creating an AWS CloudFormation stack. The database specialist wants to prevent accidental deletion of an Amazon RDS ProductionDatabase resource in the stack. Which solution will meet this requirement?
+
+- [ ] Create a stack policy to prevent updates. Include ג€Effectג€ : ג€ProductionDatabaseג€ and ג€Resourceג€ : ג€Denyג€ in the policy.
+- [ ] Create an AWS CloudFormation stack in XML format. Set xAttribute as false.
+- [ ] Create an RDS DB instance without the DeletionPolicy attribute. Disable termination protection.
+- [x] Create a stack policy to prevent updates. Include ג€Effectג€ : ג€Denyג€ and ג€Resourceג€ : ג€ProductionDatabaseג€ in the policy.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An ecommerce company migrates an on-premises MongoDB database to Amazon DocumentDB (with MongoDB compatibility). After the migration, a database specialist realizes that encryption at rest has not been turned on for the Amazon DocumentDB cluster. What should the database specialist do to enable encryption at rest for the Amazon DocumentDB cluster?
+
+- [ ] Take a snapshot of the Amazon DocumentDB cluster. Restore the unencrypted snapshot as a new cluster while specifying the encryption option, and provide an AWS Key Management Service (AWS KMS) key.
+- [x] Enable encryption for the Amazon DocumentDB cluster on the AWS Management Console. Reboot the cluster.
+- [ ] Modify the Amazon DocumentDB cluster by using the modify-db-cluster command with the --storage-encrypted parameter set to true.
+- [ ] Add a new encrypted instance to the Amazon DocumentDB cluster, and then delete an unencrypted instance from the cluster. Repeat until all instances are encrypted.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company that analyzes the stock market has two offices: one in the us-east-1 Region and another in the eu-west-2 Region. The company wants to implement an AWS database solution that can provide fast and accurate updates. The office in eu-west-2 has dashboards with complex analytical queries to display the data. The company will use these dashboards to make buying decisions, so the dashboards must have access to the application data in less than 1 second. Which solution meets these requirements and provides the MOST up-to-date dashboard?
+
+- [ ] Deploy an Amazon RDS DB instance in us-east-1 with a read replica instance in eu-west-2. Create an Amazon ElastiCache cluster in eu-west-2 to cache data from the read replica to generate the dashboards.
+- [ ] Use an Amazon DynamoDB global table in us-east-1 with replication into eu-west-2. Use multi-active replication to ensure that updates are quickly propagated to eu-west-2.
+- [x] Use an Amazon Aurora global database. Deploy the primary DB cluster in us-east-1. Deploy the secondary DB cluster in eu-west-2. Configure the dashboard application to read from the secondary cluster.
+- [ ] Deploy an Amazon RDS for MySQL DB instance in us-east-1 with a read replica instance in eu-west-2. Configure the dashboard application to read from the read replica.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is running its customer feedback application on Amazon Aurora MySQL. The company runs a report every day to extract customer feedback, and a team reads the feedback to determine if the customer comments are positive or negative. It sometimes takes days before the company can contact unhappy customers and take corrective measures. The company wants to use machine learning to automate this workflow. Which solution meets this requirement with the LEAST amount of effort?
+
+- [ ] Export the Aurora MySQL database to Amazon S3 by using AWS Database Migration Service (AWS DMS). Use Amazon Comprehend to run sentiment analysis on the exported files.
+- [ ] Export the Aurora MySQL database to Amazon S3 by using AWS Database Migration Service (AWS DMS). Use Amazon SageMaker to run sentiment analysis on the exported files.
+- [x] Set up Aurora native integration with Amazon Comprehend. Use SQL functions to extract sentiment analysis.
+- [ ] Set up Aurora native integration with Amazon SageMaker. Use SQL functions to extract sentiment analysis.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A bank plans to use an Amazon RDS for MySQL DB instance. The database should support read-intensive traffic with very few repeated queries. Which solution meets these requirements?
+
+- [ ] Create an Amazon ElastiCache cluster. Use a write-through strategy to populate the cache.
+- [ ] Create an Amazon ElastiCache cluster. Use a lazy loading strategy to populate the cache.
+- [ ] Change the DB instance to Multi-AZ with a standby instance in another AWS Region.
+- [x] Create a read replica of the DB instance. Use the read replica to distribute the read traffic.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A database specialist has a fleet of Amazon RDS DB instances that use the default DB parameter group. The database specialist needs to associate a custom parameter group with some of the DB instances. After the database specialist makes this change, when will the instances be assigned to this new parameter group?
+
+- [ ] Odpowiedź1.
+- [ ] Odpowiedź2.
+- [x] Odpowiedź3.
+- [ ] Odpowiedź4.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is planning on migrating a 500-GB database from Oracle to Amazon Aurora PostgreSQL using the AWS Schema Conversion Tool (AWS SCT) and AWS DMS. The database does not have any stored procedures to migrate but has some tables that are large or partitioned. The application is critical for business so a migration with minimal downtime is preferred. Which combination of steps should a database specialist take to accelerate the migration process? (Choose three.)
+
+- [ ] Use the AWS SCT data extraction agent to migrate the schema from Oracle to Aurora PostgreSQL.
+- [x] For the large tables, change the setting for the maximum number of tables to load in parallel and perform a full load using AWS DMS.
+- [ ] For the large tables, create a table settings rule with a parallel load option in AWS DMS, then perform a full load using DMS.
+- [ ]  Use AWS DMS to set up change data capture (CDC) for continuous replication until the cutover date.
+- [ ] Use AWS SCT to convert the schema from Oracle to Aurora PostgreSQL.
+- [x] Use AWS DMS to convert the schema from Oracle to Aurora PostgreSQL and for continuous replication.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is migrating an IBM Informix database to a Multi-AZ deployment of Amazon RDS for SQL Server with Always On Availability Groups (AGs). SQL Server Agent jobs on the Always On AG listener run at 5-minute intervals to synchronize data between the Informix database and the SQL Server database. Users experience hours of stale data after a successful failover to the secondary node with minimal latency. What should a database specialist do to ensure that users see recent data after a failover?
+
+- [ ] Set TTL to less than 30 seconds for cached DNS values on the Always On AG listener.
+- [ ] Break up large transactions into multiple smaller transactions that complete in less than 5 minutes.
+- [x] Set the databases on the secondary node to read-only mode.
+- [ ] Create the SQL Server Agent jobs on the secondary node from a script when the secondary node takes over after a failure.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A database specialist needs to configure an Amazon RDS for MySQL DB instance to close non-interactive connections that are inactive after 900 seconds. What should the database specialist do to accomplish this task?
+
+- [ ] Create a custom DB parameter group and set the wait_timeout parameter value to 900. Associate the DB instance with the custom parameter group.
+- [x] Connect to the MySQL database and run the SET SESSION wait_timeout=900 command.
+- [ ] Edit the my.cnf file and set the wait_timeout parameter value to 900. Restart the DB instance.
+- [ ] Modify the default DB parameter group and set the wait_timeout parameter value to 900.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is running its production databases in a 3 TB Amazon Aurora MySQL DB cluster. The DB cluster is deployed to the us-east-1 Region. For disaster recovery (DR) purposes, the company's database specialist needs to make the DB cluster rapidly available in another AWS Region to cover the production load with an RTO of less than 2 hours. What is the MOST operationally efficient solution to meet these requirements?
+
+- [ ] Implement an AWS Lambda function to take a snapshot of the production DB cluster every 2 hours, and copy that snapshot to an Amazon S3 bucket in the DR Region. Restore the snapshot to an appropriately sized DB cluster in the DR Region.
+- [x] Add a cross-Region read replica in the DR Region with the same instance type as the current primary instance. If the read replica in the DR Region needs to be used for production, promote the read replica to become a standalone DB cluster.
+- [ ] Create a smaller DB cluster in the DR Region. Configure an AWS Database Migration Service (AWS DMS) task with change data capture (CDC) enabled to replicate data from the current production DB cluster to the DB cluster in the DR Region.
+- [ ] Create an Aurora global database that spans two Regions. Use AWS Database Migration Service (AWS DMS) to migrate the existing database to the new global database.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an on-premises SQL Server database. The users access the database using Active Directory authentication. The company successfully migrated its database to Amazon RDS for SQL Server. However, the company is concerned about user authentication in the AWS Cloud environment. Which solution should a database specialist provide for the user to authenticate?
+
+- [ ] Deploy Active Directory Federation Services (AD FS) on premises and configure it with an on-premises Active Directory. Set up delegation between the on- premises AD FS and AWS Security Token Service (AWS STS) to map user identities to a role using theAmazonRDSDirectoryServiceAccess managed IAM policy.
+- [x] Establish a forest trust between the on-premises Active Directory and AWS Directory Service for Microsoft Active Directory. Use AWS SSO to configure an Active Directory user delegated to access the databases in RDS for SQL Server.
+- [ ] Use Active Directory Connector to redirect directory requests to the company's on-premises Active Directory without caching any information in the cloud. Use the RDS master user credentials to connect to the DB instance and configure SQL Server logins and users from the Active Directory users and groups.
+- [ ] Establish a forest trust between the on-premises Active Directory and AWS Directory Service for Microsoft Active Directory. Ensure RDS for SQL Server is using mixed mode authentication. Use the RDS master user credentials to connect to the DB instance and configure SQL Server logins and users from the Active Directory users and groups.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company uses an Amazon Redshift cluster to run its analytical workloads. Corporate policy requires that the company's data be encrypted at rest with customer managed keys. The company's disaster recovery plan requires that backups of the cluster be copied into another AWS Region on a regular basis. How should a database specialist automate the process of backing up the cluster data in compliance with these policies?
+
+- [x] Copy the AWS Key Management Service (AWS KMS) customer managed key from the source Region to the destination Region. Set up an AWS Glue job in the source Region to copy the latest snapshot of the Amazon Redshift cluster from the source Region to the destination Region. Use a time-based schedule in AWS Glue to run the job on a daily basis.
+- [ ] Create a new AWS Key Management Service (AWS KMS) customer managed key in the destination Region. Create a snapshot copy grant in the destination Region specifying the new key. In the source Region, configure cross-Region snapshots for the Amazon Redshift cluster specifying the destination Region, the snapshot copy grant, and retention periods for the snapshot.
+- [ ] Copy the AWS Key Management Service (AWS KMS) customer-managed key from the source Region to the destination Region. Create Amazon S3 buckets in each Region using the keys from their respective Regions. Use Amazon EventBridge (Amazon CloudWatch Events) to schedule an AWS Lambda function in the source Region to copy the latest snapshot to the S3 bucket in that Region. Configure S3 Cross-Region Replication to copy the snapshots to the destination Region, specifying the source and destination KMS key IDs in the replication configuration.
+- [ ] Use the same customer-supplied key materials to create a CMK with the same private key in the destination Region. Configure cross-Region snapshots in the source Region targeting the destination Region. Specify the corresponding CMK in the destination Region to encrypt the snapshot.
 
 **[⬆ Back to Top](#table-of-contents)**
