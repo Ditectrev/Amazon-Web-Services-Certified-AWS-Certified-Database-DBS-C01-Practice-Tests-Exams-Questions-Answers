@@ -1196,10 +1196,14 @@ Launch an Amazon EC2 instance with a weekly cron job to execute the customscript
 
 ### A company uses the Amazon DynamoDB table contractDB in us-east-1 for its contract system with the following schema: orderID (primary key) timestamp (sort key) contract (map) createdBy (string) customerEmail (string) After a problem in production, the operations team has asked a database specialist to provide an IAM policy to read items from the database to debug the application. In addition, the developer is not allowed to access the value of the customerEmail field to stay compliant.Which IAM policy should the database specialist use to achieve these requirements?
 
-- [x] Zdjęcie 1.
-- [ ] Zdjęcie 2.    
-- [ ] Zdjęcie 3.
-- [ ] Zdjęcie 4.
+- [x] Option A.
+![Question 118 option A](images/question118_A.jpg)
+- [ ] Option B.
+![Question 118 option B](images/question118_B.jpg)
+- [ ] Option C.
+![Question 118 option C](images/question118_C.jpg)
+- [ ] Option D.
+![Question 118 option D](images/question118_D.jpg)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -1546,7 +1550,7 @@ Launch an Amazon EC2 instance with a weekly cron job to execute the customscript
 
 - [ ] Identify a potential downtime window and stop the application calls to the source DB instance.
 - [x] Ensure that automatic backups are enabled for the source DB instance.
-- [ ] Ensure that the source DB instance is a Multi-AZ deployment with Always ON Availability Groups. 
+- [ ] Ensure that the source DB instance is a Multi-AZ deployment with Always ON Availability Groups.
 - [x] Ensure that the source DB instance is a Multi-AZ deployment with SQL Server Database Mirroring (DBM).
 - [ ] Modify the read replica parameter group setting and set the value to 1.
 
