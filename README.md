@@ -1627,10 +1627,10 @@ Launch an Amazon EC2 instance with a weekly cron job to execute the customscript
 
 ### A database specialist is creating an AWS CloudFormation stack. The database specialist wants to prevent accidental deletion of an Amazon RDS ProductionDatabase resource in the stack. Which solution will meet this requirement?
 
-- [ ] Create a stack policy to prevent updates. Include ג€Effectג€ : ג€ProductionDatabaseג€ and ג€Resourceג€ : ג€Denyג€ in the policy.
+- [ ] Create a stack policy to prevent updates. Include 'Effect' : 'ProductionDatabase' and 'Resource' : 'Deny' in the policy.
 - [ ] Create an AWS CloudFormation stack in XML format. Set xAttribute as false.
 - [ ] Create an RDS DB instance without the DeletionPolicy attribute. Disable termination protection.
-- [x] Create a stack policy to prevent updates. Include ג€Effectג€ : ג€Denyג€ and ג€Resourceג€ : ג€ProductionDatabaseג€ in the policy.
+- [x] Create a stack policy to prevent updates. Include 'Effect' : 'Deny' and 'Resource' : 'ProductionDatabase' in the policy.
 
 **[⬆ Back to Top](#table-of-contents)**
 
