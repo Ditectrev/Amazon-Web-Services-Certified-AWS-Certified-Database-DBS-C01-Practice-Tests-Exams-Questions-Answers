@@ -55,7 +55,16 @@ We are so thankful for every contribution, which makes sure we can deliver top-n
 ## Who this course is for:
 
 - 👨‍🎓 Students preparing for the Amazon Web Services Certified (AWS Certified) Database Specialty (DBS-C01) Exam;
-- 👨‍🎓 ...
+- 👨‍🎓 Amazon Web Services (AWS) Engineers;
+- 👨‍🎓 Cloud Architects;
+- 👨‍🎓 Cloud Engineers;
+- 👨‍🎓 Data Engineers;
+- 👨‍🎓 Data Scientists;
+- 👨‍🎓 Database Engineers;
+- 👨‍🎓 DevOps Engineers;
+- 👨‍🎓 Enterprise Architects;
+- 👨‍🎓 Software Developers/Engineers;
+- 👨‍🎓 Solution Architects.
 
 ## Requirements
 
