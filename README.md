@@ -4,9 +4,9 @@
 
 ## Udemy & Etsy
 
-❣️ Please support us by purchasing this course on Udemy in an interactive version with the [discounted link](https://www.udemy.com/user/social-ditectrev/). If you're working for a company, you could most probably easily claim this expense during preparation for your exam. For us, it's to be, or not to be, in the game.
+❣️ Please support us by purchasing this course on Udemy in an interactive version with the [discounted link](https://www.udemy.com/course/aws-certified-database-specialty-dbs-c01-practice-exams-m/?referralCode=34069058B54F73015244). If you're working for a company, you could most probably easily claim this expense during preparation for your exam. For us, it's to be, or not to be, in the game.
 
-🛍️ Alternatively, you can buy the PDF with those questions on [Etsy](https://ditectrev.etsy.com).
+🛍️ Alternatively, you can buy the PDF with those questions on [Etsy](https://ditectrev.etsy.com/listing/1693881886).
 
 ## ✨ This course is unlike any Amazon Web Services Certified (AWS Certified) Database Specialty (DBS-C01) course you will find online.
 
